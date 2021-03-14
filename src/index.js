@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // Cấu hình redux
 import { Provider } from "react-redux";
-import { store } from "./redux/reducers/configstore";
+import { store } from "./redux/configstore";
 
 ReactDOM.render(
   <Provider store={store}>

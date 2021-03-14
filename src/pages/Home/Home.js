@@ -1,34 +1,22 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
+import {layDanhSachPhimAction} from '../../redux/actions/PhimAction'; 
+import { connect } from "react-redux";
 
-export default class Home extends Component {
+class Home extends Component {
   // state danh sách phim
-  state = {
-    arrFilms: [],
-  };
+  // state = {
+  //   arrFilms: [],
+  // };
 
   loadFlim = () => {
-    // Dùng axios gọi lấy thông tin từ backend về qua api
-    const promise = axios({
-      url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
-      method: "GET",
-    });
-    // Xử lý thành công
-    promise.then((result) => {
-      console.log("result", result.data);
-      this.setState({
-        arrFilms: result.data
-      });
-    });
-    // Xử lý khi request lỗi
-    promise.catch((err) => {
-      console.log("err", err.response.data);
-    });
+    this.props.dispatch(
+      layDanhSachPhimAction()
+    )
   };
 
   renderFlims = () => {
-    return this.state.arrFilms.map((film, index) => {
+    return this.props.mangPhim.map((film, index) => {
       return (
         <div className="col-4" key={index}>
           <div className="card text-left">
@@ -45,13 +33,13 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container">
-        <button
+        {/* <button
           onClick={() => {
             this.loadFlim()
           }}
         >
           Lấy danh sách phim
-        </button>
+        </button> */}
         <div className="text-center display-4">Danh sách phim</div>
         <div className="row">{this.renderFlims()}</div>
       </div>
@@ -59,7 +47,15 @@ export default class Home extends Component {
   }
   // Hàm giống hàm render của react component kế thừa nên có
   componentDidMount() {
-      // Các API muốn gọi sau khi giao diện render thì sẽ gọi trong hàm này
-      this.loadFlim();
+    // Các API muốn gọi sau khi giao diện render thì sẽ gọi trong hàm này
+    this.loadFlim();
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    mangPhim: state.PhimReducer.mangPhim,
+  };
+};
+
+export default connect(mapStateToProps)(Home);
