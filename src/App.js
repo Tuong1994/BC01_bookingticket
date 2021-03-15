@@ -7,6 +7,9 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Header from "./Components/Header/Header";
 import Loading from "./Components/Loading/Loading";
+import Lifecycle from "./pages/Lifecycle/Lifecycle";
+import UseStateHook from "./redux/Hooks/UseStateHook";
+import BTChonXe from "./redux/Hooks/BTChonXe";
 
 function App() {
   return (
@@ -19,7 +22,15 @@ function App() {
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        {/* // Route mặc định để dưới cùng của ứng dụng  */}
+        <Route exact path="/lifecycle" render={(propsRoute) => { // tham số chứa các props của thẻ route
+          return <div>
+            <h3>Component lifecycle</h3>
+           <Lifecycle {...propsRoute} /> 
+          </div>
+        }} />
+        <Route exact path='/usestatedemo' component={UseStateHook} />
+        <Route exact path='/chonmauxe' component={BTChonXe} />
+         {/* // Route mặc định để dưới cùng của ứng dụng  */}
         <Route exact path="/" component={Home} />
         </Switch>
       </div>
