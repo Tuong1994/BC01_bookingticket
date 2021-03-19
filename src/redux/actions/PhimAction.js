@@ -26,3 +26,24 @@ export const layDanhSachPhimAction = () => {
         }, 1000);
     }
 }
+
+// Lấy thông tin chi tiết phim
+
+export const getMovieDetailAction = (maPhim) => {
+    return async (dispatch) => {
+        try {
+            let result = await axios({
+                url : `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
+                method: 'GET'
+            });
+            console.log('result',result)
+            // Sau khi lấy dữ liệu từ API chúng ta sẽ đưa dữ liệu lên reducer = dispatch
+            dispatch({
+                type: 'GET_MOVIE_DETAIL',
+                chiTietPhim: result.data
+            })
+        }catch(errors) {
+            console.log(errors);
+        }
+    }
+}

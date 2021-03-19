@@ -81,6 +81,8 @@ export default class Header extends Component {
                 <a class="nav-link dropdown-toggle" href='#' id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hooks</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
                     <NavLink class="dropdown-item" to="/usestatedemo">Use State Hook</NavLink>
+                    <NavLink class="dropdown-item" to="/useeffectdemo">Use Effect Home</NavLink>
+                    <NavLink class="dropdown-item" to="/reduxhook">Redux Hook</NavLink>
                     <NavLink class="dropdown-item" to="/chonmauxe">Chọn màu xe</NavLink>
                 </div>
             </li>

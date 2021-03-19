@@ -10,6 +10,9 @@ import Loading from "./Components/Loading/Loading";
 import Lifecycle from "./pages/Lifecycle/Lifecycle";
 import UseStateHook from "./redux/Hooks/UseStateHook";
 import BTChonXe from "./redux/Hooks/BTChonXe";
+import UseEffectHome from "./redux/Hooks/UseEffectHome";
+import ReduxHook from "./redux/Hooks/ReduxHook";
+import Details from "./pages/Details/Details";
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
         }} />
         <Route exact path='/usestatedemo' component={UseStateHook} />
         <Route exact path='/chonmauxe' component={BTChonXe} />
+        <Route exact path='/useeffectdemo' component={UseEffectHome} />
+        <Route exact path='/reduxhook' component={ReduxHook} />
+        <Route exact path='/details/:id' component={Details} />
          {/* // Route mặc định để dưới cùng của ứng dụng  */}
         <Route exact path="/" component={Home} />
         </Switch>

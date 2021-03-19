@@ -1,5 +1,6 @@
 const stateDefault = {
-    mangPhim : []
+    mangPhim : [],
+    chiTietPhim: {},
 }
 
 export const PhimReducer = (state = stateDefault, action) => {
@@ -9,7 +10,12 @@ export const PhimReducer = (state = stateDefault, action) => {
             return {...state}
         }
 
+        case 'GET_MOVIE_DETAIL' : {
+            state.chiTietPhim = action.chiTietPhim;
+            return {...state};
+        }
         default:
             return {...state}
     }
 }
+
