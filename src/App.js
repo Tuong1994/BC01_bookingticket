@@ -13,17 +13,24 @@ import BTChonXe from "./redux/Hooks/BTChonXe";
 import UseEffectHome from "./redux/Hooks/UseEffectHome";
 import ReduxHook from "./redux/Hooks/ReduxHook";
 import Details from "./pages/Details/Details";
+import HookUseCallBack from "./redux/Hooks/HookUseCallBack";
+import HookUseMemo from "./redux/Hooks/HookUseMemo";
+import HookUseRef from "./redux/Hooks/HookUseRef";
+import ParentComponent from "./pages/HOC/ParentComponent";
+import { HomeTemplate } from "./templates/HomeTemplate";
+import { AdminTemplate } from "./templates/AdminTemplate";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
       <Loading />
-      <Header />
       <Switch> 
-        <Route exact path="/home" component={Home} />
+        {/* <Route exact path="/home" component={Home} /> */}
+
+        <HomeTemplate exact path='/home' Component={Home} />
         <Route exact path="/contact" component={Contact} />
-        <Route exact path="/login" component={Login} />
+        <AdminTemplate exact path="/login" Component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/lifecycle" render={(propsRoute) => { // tham số chứa các props của thẻ route
           return <div>
@@ -35,7 +42,11 @@ function App() {
         <Route exact path='/chonmauxe' component={BTChonXe} />
         <Route exact path='/useeffectdemo' component={UseEffectHome} />
         <Route exact path='/reduxhook' component={ReduxHook} />
+        <Route exact path='/usecallback' component={HookUseCallBack} />
+        <Route exact path='/usememo' component={HookUseMemo} />
+        <Route exact path='/useref' component={HookUseRef} />
         <Route exact path='/details/:id' component={Details} />
+        <Route exact path='/demoprops' component={ParentComponent} />
          {/* // Route mặc định để dưới cùng của ứng dụng  */}
         <Route exact path="/" component={Home} />
         </Switch>
