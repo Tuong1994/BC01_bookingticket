@@ -34,9 +34,9 @@ export const getMovieDetailAction = (maPhim) => {
         try {
             let result = await axios({
                 url : `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
-                method: 'GET'
+                method : 'GET'
             });
-            console.log('result',result)
+            console.log('result',result.data)
             // Sau khi lấy dữ liệu từ API chúng ta sẽ đưa dữ liệu lên reducer = dispatch
             dispatch({
                 type: 'GET_MOVIE_DETAIL',
@@ -44,6 +44,24 @@ export const getMovieDetailAction = (maPhim) => {
             })
         }catch(errors) {
             console.log(errors);
+        }
+    }
+}
+
+export const getTicketAction = (maLichChieu) => {
+    return async (dispatch) => {
+        try {
+            const result = await axios({
+                url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+                method: 'GET'
+            });
+            console.log(result.data);
+            dispatch({
+                type : "GET_TICKET_ACTION",
+                thongTinPhongVe : result.data
+            })
+        }catch (errors) {
+            console.log('errors', errors);;
         }
     }
 }

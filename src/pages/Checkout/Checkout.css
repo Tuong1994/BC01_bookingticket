@@ -1,0 +1,36 @@
+.ghe {
+    width: 35px;
+    height: 35px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 35px; 
+    outline: none !important;
+    font-size: 12px !important;
+}
+
+.ghe:hover {
+    background: #333;
+    color: #fff;
+}
+
+.gheDaDat {
+    background: rgb(228, 9, 9) !important;
+    color: #fff;
+    cursor: no-drop;
+}
+
+.gheVip {
+    background: rgb(224, 228, 9);
+    color: #fff;
+}
+
+.gheDangDat {
+    background: rgb(68, 218, 38) !important;
+    color: #fff;
+}
