@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Redirect } from "react-router";
+import { taiKhoan } from "../../configs/setting";
 import { getTicketAction } from "../../redux/actions/PhimAction";
 import "./Checkout.css";
 
@@ -67,7 +69,10 @@ export default function Checkout(props) {
     }, 0);
   };
 
-  console.log("thongTinPhongVe", thongTinPhongVe);
+  if(!localStorage.getItem(taiKhoan)) {
+    return <Redirect to ='/login' />
+  }
+  // console.log("thongTinPhongVe", thongTinPhongVe);
 
   return (
     <div className="container mt-5 ">

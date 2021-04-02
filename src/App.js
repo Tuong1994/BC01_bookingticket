@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import Login from "./pages/Login/Login";
@@ -20,10 +20,13 @@ import ParentComponent from "./pages/HOC/ParentComponent";
 import { HomeTemplate } from "./templates/HomeTemplate";
 import { AdminTemplate } from "./templates/AdminTemplate";
 import Checkout from "./pages/Checkout/Checkout";
+import {createBrowserHistory} from 'history';
+
+export const history = createBrowserHistory();
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div className="App">
       <Loading />
       <Switch> 
@@ -53,7 +56,7 @@ function App() {
         <HomeTemplate exact path="/" Component={Home} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

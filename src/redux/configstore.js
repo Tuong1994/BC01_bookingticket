@@ -3,12 +3,14 @@ import { PhimReducer } from "./reducers/PhimReducer";
 import reduxThunk from "redux-thunk";
 import { LoadingReducer } from "./reducers/LoadingReducer";
 import {QuanLyDatVeReducer} from './reducers/QuanLyDatVeReducer';
+import {NguoiDungReducer} from './reducers/NguoiDungReducer';
 
 // state tổng của ứng dụng
 const rootReducer = combineReducers({
   PhimReducer,
   LoadingReducer,
-  QuanLyDatVeReducer
+  QuanLyDatVeReducer,
+  NguoiDungReducer,
 });
 
 // appply thunk để xử lý dispatch API
